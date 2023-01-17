@@ -1,11 +1,15 @@
 <?php
-
+$page_title = "Homepage";
+include_once 'headers.php';
 // Get the 3 most recently added products
 $stmt = $pdo->prepare('SELECT * FROM events ORDER BY date DESC LIMIT 3');
 $stmt->execute();
 $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-<?=template_header('Home')?>
+
+//<?=template_header('Home')
+?> 
+
+
 
 <div class="featured">
     <h2 >TBS Events</h2>

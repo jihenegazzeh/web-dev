@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +17,20 @@
 
      	<label>Password :</label>
      	<input type="password" name="password" placeholder="Password"><br>
+       <p> Remember Me 
+      <input name="remember" value="yes" type="checkbox" >
+      </p>
 
-     	<button type="submit" onclick='val();'>Login</button>
+    <button type="submit" onclick='val();'>Login</button>
 		<button type="submit" ><a href='index.php' style="text-decoration:none; color: #FFFFFF;" >Home</button>
-          <a href="signup1.php" class="ca">Create an account</a>
+    <a href="signup1.php" class="ca">Create an account</a>
      </form>
 	<script>
+
+
+
+
+
 	// Some random colors
 const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
 

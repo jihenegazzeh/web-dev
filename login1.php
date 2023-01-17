@@ -1,6 +1,7 @@
 <?php 
 session_start(); 
 include "db_conn1.php";
+include_once 'functions.php';
 
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
@@ -45,7 +46,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 			header("Location: index1.php?error=Incorect User name or password");
 	        exit();
 		}
-		$arr.push()
+		$arr.push();
 	}
 	
 	
@@ -53,3 +54,40 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	header("Location: index1.php");
 	exit();
 }
+
+
+
+
+
+
+//collect form data
+$user = $_POST['name'];
+$password = $_POST['password'];
+
+isset($_POST['remember']) ? $remember = $_POST['remember'] : $remember = "";
+
+//check if user exist in the database
+$sqlQuery = "SELECT * FROM users WHERE username = :username";
+$statement = $conn->prepare($sqlQuery);
+$statement->execute(array(':username' => $user));
+
+if($row = $statement->fetch()){
+	$id = $row['id'];
+	$hashed_password = $row['password'];
+	$username = $row['name'];
+
+	if(password_verify($password, $hashed_password)){
+		$_SESSION['id']= $id;
+		$_SESSION['name']=$username;
+
+		if($remember == "yes"){
+			rememberMe($id);
+		}
+	}else{
+		$result = flashMessage("You have entered an invalid password");
+	}
+
+}else{
+	$result = flashMessage("You have entered an invalid username");
+}
+

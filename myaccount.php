@@ -1,7 +1,12 @@
+<?php
+$page_title = " my account";
+include_once 'headers.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <body>
-<?=template_header('myaccount')?>
+ <?= //template_header('myaccount')?>
 	<center>
 		<h1>create an account</h1>
 		<form action="insert.php" method="post">

@@ -15,8 +15,10 @@ if (isset($_GET['id'])) {
     // Simple error to display if the id wasn't specified
     exit('Product does not exist!');
 }
+$page_title = "User Authentication - Product";
+include_once 'headers.php';
 ?>
-<?=template_header('Product')?>
+<?=t//emplate_header('Product')?>
 
 <div class="product content-wrapper">
     <img src="imgs/<?=$product['img']?>" width="500" height="500" alt="<?=$product['name']?>">
