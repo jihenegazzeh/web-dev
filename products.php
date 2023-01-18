@@ -21,7 +21,6 @@ $total_products = $pdo->query('SELECT * FROM events')->rowCount();
 $page_title = "User Authentication - Products";
 include_once 'headers.php';
 ?>
-<?=//template_header('Products')?>
 <div class="products content-wrapper">
     <p><?=$total_products?> Events</p>
     <div class="products-wrapper">

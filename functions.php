@@ -102,12 +102,15 @@ function isCookieValid($conn){
 
         if($row = $statement->fetch()){
             $id = $row['id'];
+            $email = $row['email'];
             $username = $row['name'];
+            
 
             /**
              * Create the user session variable
              */
             $_SESSION['id'] = $id;
+            $_SESSION['email'] = $email;
             $_SESSION['username'] = $username;
             $isValid = true;
         }else{
